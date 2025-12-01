@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>අමතන්න - ශ්‍රී සුගත දහම් පාසල</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: 'Noto Sans Sinhala', 'Poppins', sans-serif; background-color: #f0f2f5; }
+        
+        .contact-wrapper {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .contact-info-side {
+            background: linear-gradient(135deg, #800000 0%, #4a0000 100%);
+            color: white;
+            padding: 50px;
+        }
+        
+        .contact-form-side {
+            padding: 50px;
+            background: white;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 20px;
+        }
+        
+        .header-bg {
+            background: #212529;
+            height: 250px;
+            width: 100%;
+            position: relative;
+        }
+
+        .form-control {
+            background-color: #f8f9fa;
+            border: 1px solid #eee;
+            padding: 12px;
+            border-radius: 8px;
+        }
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #800000;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-3" href="index-si.html">
+                <div class="logo-circle"><img src="logo.png" alt="Logo" class="logo-img"></div>
+                <div class="d-flex flex-column">
+                    <span class="brand-title">ශ්‍රී සුගත දහම් පාසල</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index-si.html">මුල් පිටුව</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about-si.html">අප ගැන</a></li>
+                    <li class="nav-item"><a class="nav-link" href="news-si.html">පුවත්</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact-si.html">අමතන්න</a></li>
+                    <li class="nav-item ms-3"><a class="btn btn-outline-light btn-sm" href="contact.html">English</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="header-bg d-flex align-items-center justify-content-center text-white">
+        <h1 class="fw-bold display-5">අප අමතන්න</h1>
+    </div>
+
+    <div class="container mb-5">
+        <div class="contact-wrapper">
+            <div class="row g-0">
+                <div class="col-lg-5 contact-info-side">
+                    <h3 class="fw-bold mb-4">සම්බන්ධ කරගැනීමට</h3>
+                    <p class="mb-5 text-white-50">ඔබට යම් ගැටළුවක් හෝ විමසීමක් ඇත්නම් පහත ක්‍රම ඔස්සේ අප හා සම්බන්ධ වන්න.</p>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div>
+                            <h6 class="fw-bold mb-0">ලිපිනය</h6>
+                            <small>ජනාවාස 10, බුත්තල, මොනරාගල</small>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <div>
+                            <h6 class="fw-bold mb-0">දුරකථන අංකය</h6>
+                            <small>076-7499219</small>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">📧</div>
+                        <div>
+                            <h6 class="fw-bold mb-0">විද්‍යුත් තැපෑල</h6>
+                            <small>principal@srisugatha.lk</small>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <p class="small text-white-50">කාර්යාලීය වේලාවන්:<br>ඉරිදා දින ප.ව. 12:30 දක්වා</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 contact-form-side">
+                    <h3 class="fw-bold text-dark mb-4">පණිවිඩයක් එවන්න</h3>
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold">ඔබේ නම</label>
+                                <input type="text" class="form-control" placeholder="නම ඇතුලත් කරන්න">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold">දුරකථන අංකය</label>
+                                <input type="text" class="form-control" placeholder="07x xxxxxxx">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label small fw-bold">විද්‍යුත් ලිපිනය (ඇත්නම්)</label>
+                                <input type="email" class="form-control" placeholder="name@example.com">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label small fw-bold">පණිවිඩය</label>
+                                <textarea class="form-control" rows="4" placeholder="ඔබේ පණිවිඩය මෙහි ලියන්න..."></textarea>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button type="submit" class="btn btn-dark w-100 py-2 fw-bold">පණිවිඩය යවන්න</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid p-0">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63397.74996947625!2d81.2065!3d6.7569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae4666666666667%3A0x6666666666666666!2sButtala!5e0!3m2!1sen!2slk!4v1614000000000!5m2!1sen!2slk" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <footer class="footer bg-dark text-white py-4 text-center">
+        <div class="container"><p class="mb-0">&copy; 2025 ශ්‍රී සුගත දහම් පාසල.</p></div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

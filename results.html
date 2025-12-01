@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>විභාග ප්‍රතිඵල - ශ්‍රී සුගත දහම් පාසල</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: 'Noto Sans Sinhala', 'Poppins', sans-serif; background-color: #f8f9fa; }
+        
+        /* Result Sheet Styles */
+        .result-card {
+            display: none; /* මුලදී මෙය සැඟවී ඇත */
+            background: white;
+            border-top: 5px solid #800000;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .marks-table th { background-color: #f1f1f1; }
+        .grade-a { color: #28a745; font-weight: bold; }
+        .grade-c { color: #dc3545; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-3" href="index-si.html">
+                <div class="logo-circle"><img src="logo.png" alt="Logo" class="logo-img"></div>
+                <div class="d-flex flex-column">
+                    <span class="brand-title">ශ්‍රී සුගත දහම් පාසල</span>
+                    <span class="brand-subtitle">ජනාවාස 10, බුත්තල</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index-si.html">මුල් පිටුව</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="results.html">ප්‍රතිඵල</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center animate-text">
+                <h2 class="fw-bold mb-3">වාර විභාග ප්‍රතිඵල පරීක්ෂාව</h2>
+                <p class="text-muted">ඔබගේ විභාග අංකය පහතින් ඇතුළත් කරන්න.</p>
+                
+                <div class="card p-4 shadow-sm border-0 mt-4">
+                    <form onsubmit="checkResult(event)">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-text bg-white border-end-0">🔍</span>
+                            <input type="text" id="indexNumber" class="form-control border-start-0" placeholder="උදා: 2025001" required>
+                            <button class="btn btn-warning fw-bold px-4" type="submit">සොයන්න</button>
+                        </div>
+                    </form>
+                    <p id="errorMsg" class="text-danger mt-3 fw-bold" style="display: none;">ඇතුළත් කළ විභාග අංකය වැරදියි!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-5" id="resultSection">
+            <div class="col-md-8">
+                <div class="card result-card p-4 animate-text" id="resultCard">
+                    
+                    <div class="text-center mb-4">
+                        <img src="logo.png" width="100" class="mb-100">
+                        <h4 class="fw-bold">2024 අවසාන වාර විභාගය</h4>
+                        <h4 class="fw-bold">ශ්‍රී සුගත දහම් පාසල</h4>
+                        <hr>
+                        <div class="row text-start mt-4">
+                            <div class="col-md-6">
+                                <p><strong>නම:</strong> <span id="stName">---</span></p>
+                                <p><strong>ශ්‍රේණිය:</strong> <span id="stGrade">---</span></p>
+                            </div>
+                            <div class="col-md-6 text-md-end">
+                                <p><strong>විභාග අංකය:</strong> <span id="stIndex">---</span></p>
+                                <p><strong>සාමාන්‍යය:</strong> <span class="badge bg-primary" id="stAvg">---</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table class="table table-bordered marks-table text-center">
+                        <thead>
+                            <tr>
+                                <th>විෂය</th>
+                                <th>ලකුණු</th>
+                                <th>සාමාර්ථය</th>
+                            </tr>
+                        </thead>
+                        <tbody id="marksBody">
+                            </tbody>
+                    </table>
+
+                    <div class="text-center mt-4">
+                        <button onclick="window.print()" class="btn btn-outline-dark btn-sm">🖨️ ප්‍රතිඵල පත්‍රිකාව මුද්‍රණය කරන්න</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 1. මේ තියෙන්නේ Database එක (Prototype Data)
+        // සිසුන් 3 දෙනෙකුගේ දත්ත මෙහි ඇත.
+        const database = {
+            "2025001": {
+                name: "කසුන් පෙරේරා",
+                grade: "8 ශ්‍රේණිය",
+                marks: [
+                    { subject: "බුද්ධ චරිතය", score: 85, grade: "A" },
+                    { subject: "දහම් දැනුම", score: 78, grade: "A" },
+                    { subject: "පාලි භාෂාව", score: 65, grade: "B" },
+                    { subject: "අභිධර්මය", score: 90, grade: "A" },
+                    { subject: "භාවනාව", score: 88, grade: "A" }
+                ],
+                average: "81.2%"
+            },
+            "2025002": {
+                name: "අමායා නෙත්මි",
+                grade: "6 ශ්‍රේණිය",
+                marks: [
+                    { subject: "බුද්ධ චරිතය", score: 92, grade: "A" },
+                    { subject: "දහම් දැනුම", score: 88, grade: "A" },
+                    { subject: "පාලි භාෂාව", score: 95, grade: "A" },
+                    { subject: "අභිධර්මය", score: 85, grade: "A" },
+                    { subject: "භාවනාව", score: 90, grade: "A" }
+                ],
+                average: "90.0%"
+            },
+            "2025003": {
+                name: "සදීප සිල්වා",
+                grade: "9 ශ්‍රේණිය",
+                marks: [
+                    { subject: "බුද්ධ චරිතය", score: 45, grade: "C" },
+                    { subject: "දහම් දැනුම", score: 55, grade: "C" },
+                    { subject: "පාලි භාෂාව", score: 60, grade: "B" },
+                    { subject: "අභිධර්මය", score: 50, grade: "C" },
+                    { subject: "භාවනාව", score: 70, grade: "B" }
+                ],
+                average: "56.0%"
+            }
+        };
+
+        function checkResult(event) {
+            event.preventDefault(); // පිටුව Reload වීම නවතයි
+            
+            const inputIndex = document.getElementById("indexNumber").value;
+            const errorMsg = document.getElementById("errorMsg");
+            const resultCard = document.querySelector(".result-card");
+            
+            // දත්ත තිබේදැයි පරීක්ෂා කිරීම
+            if (database[inputIndex]) {
+                // දත්ත තිබේ නම්
+                const student = database[inputIndex];
+                errorMsg.style.display = "none";
+                resultCard.style.display = "block"; // Card එක පෙන්වන්න
+
+                // නම සහ විස්තර පිරවීම
+                document.getElementById("stName").innerText = student.name;
+                document.getElementById("stGrade").innerText = student.grade;
+                document.getElementById("stIndex").innerText = inputIndex;
+                document.getElementById("stAvg").innerText = student.average;
+
+                // ලකුණු වගුව පිරවීම
+                const tbody = document.getElementById("marksBody");
+                tbody.innerHTML = ""; // පරණ දත්ත මකන්න
+
+                student.marks.forEach(sub => {
+                    let colorClass = sub.grade === "A" ? "grade-a" : (sub.grade === "C" || sub.grade === "S" ? "grade-c" : "");
+                    
+                    let row = `<tr>
+                        <td>${sub.subject}</td>
+                        <td>${sub.score}</td>
+                        <td class="${colorClass}">${sub.grade}</td>
+                    </tr>`;
+                    tbody.innerHTML += row;
+                });
+
+            } else {
+                // දත්ත නැත්නම්
+                resultCard.style.display = "none";
+                errorMsg.style.display = "block";
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Login - Sri Sugatha Dhamma School</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .login-logo {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-card animate-text">
+        <img src="logo.png" alt="Logo" class="login-logo">
+        <h3 class="fw-bold mb-4">Teacher Portal</h3>
+        
+        <form id="loginForm" onsubmit="return validateLogin(event)">
+            <div class="mb-3 text-start">
+                <label class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter username" required>
+            </div>
+            <div class="mb-3 text-start">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-warning fw-bold">Login to System</button>
+            </div>
+            <p id="errorMsg" class="text-danger mt-3 small" style="display: none;">Invalid Username or Password!</p>
+        </form>
+        
+        <div class="mt-4">
+            <a href="index.html" class="text-decoration-none text-muted small">← Back to Website</a>
+        </div>
+    </div>
+
+    <script>
+        function validateLogin(event) {
+            event.preventDefault(); // පිටුව Reload වීම නවතයි
+            
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+            const errorMsg = document.getElementById('errorMsg');
+
+            // --- DEMO CREDENTIALS ---
+            // Username: admin
+            // Password: 123
+            if (user === "admin" && pass === "123") {
+                // සාර්ථක නම් Dashboard එකට යවන්න
+                window.location.href = "dashboard.html";
+            } else {
+                // වැරදි නම් Error එක පෙන්වන්න
+                errorMsg.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>

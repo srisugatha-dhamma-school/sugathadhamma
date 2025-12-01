@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>පුවත් සහ නිවේදන - ශ්‍රී සුගත දහම් පාසල</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: 'Noto Sans Sinhala', 'Poppins', sans-serif; background-color: #f0f2f5; }
+        
+        /* ප්‍රධාන පුවත් කාඩ්පත් */
+        .featured-card {
+            border: none;
+            border-radius: 12px;
+            transition: transform 0.2s;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+        .featured-card:hover { transform: translateY(-3px); }
+        
+        /* දකුණු පැත්තේ Notice Board එක */
+        .notice-board {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            height: 100%;
+        }
+        .notice-item {
+            padding: 15px 0;
+            border-bottom: 1px dashed #ddd;
+            display: flex;
+            align-items: start;
+            gap: 15px;
+            transition: background 0.2s;
+        }
+        .notice-item:last-child { border-bottom: none; }
+        .notice-item:hover { background-color: #f9f9f9; padding-left: 10px; border-radius: 5px; }
+        
+        .date-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 5px 10px;
+            text-align: center;
+            min-width: 60px;
+        }
+        .date-day { font-size: 1.2rem; font-weight: bold; color: #800000; line-height: 1; }
+        .date-month { font-size: 0.7rem; text-transform: uppercase; color: #666; }
+        
+        .news-header-bg {
+            background: linear-gradient(135deg, #1a1a1a 0%, #4a0000 100%);
+            color: white;
+            padding: 40px 0;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-3" href="index-si.html">
+                <div class="logo-circle"><img src="logo.png" alt="Logo" class="logo-img"></div>
+                <div class="d-flex flex-column">
+                    <span class="brand-title">ශ්‍රී සුගත දහම් පාසල</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index-si.html">මුල් පිටුව</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about-si.html">අප ගැන</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="news-si.html">පුවත්</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact-si.html">අමතන්න</a></li>
+                    <li class="nav-item ms-3"><a class="btn btn-outline-light btn-sm" href="news.html">English</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="news-header-bg text-center">
+        <div class="container">
+            <h2 class="fw-bold">පුවත් සහ නිවේදන පුවරුව</h2>
+            <p class="mb-0 text-white-50">දැනට පවතින සියලුම නිවේදන සහ පසුගිය සිදුවීම්</p>
+        </div>
+    </div>
+
+    <div class="container mb-5">
+        <div class="row">
+            
+            <div class="col-lg-7">
+                <h5 class="fw-bold text-danger mb-3 border-start border-4 border-danger ps-2">🔥 විශේෂ නිවේදන</h5>
+                
+                <div class="card featured-card border-warning border-2">
+                    <div class="card-body">
+                        <span class="badge bg-danger mb-2">ඉතා වැදගත්</span>
+                        <h4 class="card-title fw-bold">2026 නවක සිසුන් බඳවා ගැනීම</h4>
+                        <p class="text-muted small">📅 ආරම්භය: 2026 ජනවාරි 04</p>
+                        <p class="card-text">2026 අධ්‍යයන වර්ෂය සඳහා 1 ශ්‍රේණියේ සිට නවක සිසුන් බඳවා ගැනීම ජනවාරි මස මුල් සතියේ ආරම්භ වේ. අයදුම්පත් දැන් ලබාගත හැක.</p>
+                        <a href="#" class="btn btn-warning btn-sm fw-bold">📥 අයදුම්පත බාගත කරන්න</a>
+                    </div>
+                </div>
+
+                <div class="card featured-card border-primary border-top-0 border-end-0 border-bottom-0 border-4">
+                    <div class="card-body">
+                        <span class="badge bg-primary mb-2">රැස්වීම්</span>
+                        <h4 class="card-title fw-bold">දහම් පාසල් සංවර්ධන සමිතිය</h4>
+                        <p class="text-muted small">📅 දිනය: 2025 නොවැම්බර් 30 | පෙ.ව. 9:00</p>
+                        <p class="card-text">පාසලේ ඉදිරි සංවර්ධන කටයුතු සහ වාර්ෂික සැලැස්ම සාකච්ඡා කිරීම සඳහා පැවැත්වෙන මෙම විශේෂ රැස්වීමට සියලු දෙමාපියන් සහභාගී වන්න.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="notice-board">
+                    <h5 class="fw-bold text-secondary mb-4 border-bottom pb-2">📌 පසුගිය සිදුවීම් & පුවත්</h5>
+                    
+                    <div class="notice-item">
+                        <div class="date-box">
+                            <div class="date-day">26</div>
+                            <div class="date-month">නොවැ</div>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1"><a href="results.html" class="text-dark text-decoration-none">2024 අවසාන වාර විභාග ප්‍රතිඵල</a></h6>
+                            <small class="text-success fw-bold">ප්‍රතිඵල නිකුත් කර ඇත</small>
+                        </div>
+                    </div>
+
+                    <div class="notice-item">
+                        <div class="date-box">
+                            <div class="date-day">10</div>
+                            <div class="date-month">නොවැ</div>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">වාර්ෂික කඨින මහා පින්කම</h6>
+                            <small class="text-muted">විහාරස්ථානයේ පැවති උත්සවය</small>
+                        </div>
+                    </div>
+
+                    <div class="notice-item">
+                        <div class="date-box">
+                            <div class="date-day">25</div>
+                            <div class="date-month">ඔක්</div>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">ත්‍යාග ප්‍රදානෝත්සවය</h6>
+                            <small class="text-muted">සිසුන් ඇගයීමේ උළෙල</small>
+                        </div>
+                    </div>
+
+                    <div class="notice-item">
+                        <div class="date-box">
+                            <div class="date-day">06</div>
+                            <div class="date-month">ඔක්</div>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">ගුරු උපහාර උළෙල</h6>
+                            <small class="text-muted">ගුරු දිනය සැමරීම</small>
+                        </div>
+                    </div>
+
+                    <div class="notice-item">
+                        <div class="date-box">
+                            <div class="date-day">15</div>
+                            <div class="date-month">අගෝ</div>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">පරිසර ආරක්ෂණ ශ්‍රමදානය</h6>
+                            <small class="text-success">සාර්ථකව නිමාවිය</small>
+                        </div>
+                    </div>
+
+                    <div class="notice-item">
+                        <div class="date-box">
+                            <div class="date-day">21</div>
+                            <div class="date-month">ජුනි</div>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">පොසොන් සිල් ව්‍යාපාරය</h6>
+                            <small class="text-muted">සිසුන් 400ක් සහභාගී විය</small>
+                        </div>
+                    </div>
+
+                    <div class="notice-item">
+                        <div class="date-box">
+                            <div class="date-day">23</div>
+                            <div class="date-month">මැයි</div>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">වෙසක් කූඩු තරඟාවලිය</h6>
+                            <small class="text-primary">ප්‍රදර්ශනය හා තරඟය</small>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-3">
+                        <a href="#" class="btn btn-outline-secondary btn-sm rounded-pill w-100">සියලු පුවත් බලන්න ↓</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-3 bg-light text-center">
+        <div class="container"><p class="mb-0 text-muted small">&copy; 2025 ශ්‍රී සුගත දහම් පාසල.</p></div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

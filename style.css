@@ -1,0 +1,416 @@
+/* style.css - Custom Styles for Sri Sugatha Dhamma School */
+
+:root {
+    /* Buddhist Flag Inspired Color Palette */
+    --primary-color: #800000; /* Maroon - Represents Wisdom */
+    --accent-color: #FFD700;  /* Gold/Yellow - Represents the Path */
+    --light-bg: #fdfbf7;      /* Off-white/Cream - Represents Purity */
+    --text-dark: #333333;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    background-color: var(--primary-color) !important; /* Overrides Bootstrap Dark */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: var(--accent-color) !important;
+    font-size: 1.3rem;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--accent-color) !important;
+}
+
+/* --- Hero Section (Home Page) --- */
+.hero {
+    /* You can add a background image URL here later */
+    background: linear-gradient(rgba(128, 0, 0, 0.8), rgba(128, 0, 0, 0.6)), url('temple_bg.jpg'); 
+    background-color: var(--primary-color); /* Fallback color */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 120px 0;
+    text-align: center;
+    border-bottom: 5px solid var(--accent-color);
+}
+
+.hero h1 {
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* --- Buttons --- */
+.btn-warning {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.btn-warning:hover {
+    background-color: #e6c200;
+    color: #5c0000;
+}
+
+/* --- Cards (News & About) --- */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Gentle lift effect on hover */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.card-header {
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: #2c0404; /* Darker Maroon */
+    color: rgba(255, 255, 255, 0.7);
+    padding: 30px 0;
+    margin-top: 60px;
+    border-top: 3px solid var(--accent-color);
+}
+
+/* --- Utility Classes --- */
+.text-maroon {
+    color: var(--primary-color);
+}
+/* --- ANIMATIONS --- */
+
+/* 1. Define the Fade In Up Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px); /* Starts 30px lower */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Moves to original position */
+    }
+}
+
+/* 2. Apply the animation to the text */
+.animate-text {
+    opacity: 0; /* Hidden at first */
+    animation: fadeInUp 1s ease-out forwards; /* Runs for 1 second */
+}
+
+/* 3. Define a Pulse Animation for the Button */
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+}
+
+/* 4. Apply Pulse to the Button */
+.pulse-button {
+    animation: pulse 2s infinite; /* Repeats forever */
+}
+/* --- Navbar Branding Styles --- */
+
+/* ලෝගෝ එක වටා සුදු රවුමක් යෙදීම */
+.logo-circle {
+    background-color: #ffffff;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%; /* මෙය රවුමක් කරයි */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+/* ලෝගෝ පින්තූරයේ ප්‍රමාණය */
+.logo-img {
+    width: 100%;
+    height: auto;
+}
+
+/* පාසලේ නම (ලොකු අකුරු) */
+.brand-title {
+    font-family: 'Noto Sans Sinhala', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem; /* අකුරු ප්‍රමාණය */
+    color: #FFD700; /* රත්රන් පැහැය */
+    line-height: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* නගරය (පොඩි අකුරු) */
+.brand-subtitle {
+    font-family: 'Noto Sans Sinhala', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 1px;
+}
+
+/* --- HERO SLIDER ANIMATIONS --- */
+
+/* ස්ලයිඩරයේ උස පාලනය කිරීම */
+.carousel-item {
+    height: 500px; /* ඔබට අවශ්‍ය නම් මෙය වෙනස් කළ හැක */
+    overflow: hidden;
+}
+
+.carousel-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /* පින්තූරය කොටු නොවී ලස්සනට පෙන්වයි */
+    transform-origin: center;
+    transition: transform 5s ease-in-out; /* තත්පර 5ක් පුරා Zoom වේ */
+}
+
+/* පින්තූරය Active වූ විට Zoom වීම */
+.carousel-item.active img {
+    transform: scale(1.1); /* 10% කින් Zoom වේ */
+}
+
+/* ස්ලයිඩරය මත අඳුරු ආවරණයක් (Overlay) යෙදීම - අකුරු පැහැදිලි වීමට */
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.4); /* 40% කළු පැහැය */
+    z-index: 1;
+}
+
+/* ස්ලයිඩරයේ ඇති අකුරු */
+.carousel-caption {
+    z-index: 2;
+    bottom: 40%; /* මැදට ගෙන ඒමට */
+}
+/* --- CALENDAR STYLES --- */
+.calendar-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+.calendar-header {
+    background: #800000; /* Maroon */
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.current-date {
+    font-size: 1.45rem;
+    font-weight: 600;
+}
+.calendar-body {
+    padding: 20px;
+}
+.weeks {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+.weeks li {
+    width: calc(100% / 7);
+    font-weight: 600;
+    text-align: center;
+    color: #333;
+}
+.days {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+}
+.days li {
+    width: calc(100% / 7);
+    margin-bottom: 20px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 1;
+}
+/* අද දිනය හයිලයිට් කිරීම */
+.days li.active {
+    color: #fff;
+}
+.days li.active::before {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background: #FFD700; /* Gold */
+    border-radius: 50%;
+    z-index: -1;
+    margin-left: -17px; /* Center circle */
+    margin-top: -7px;
+}
+/* ඉරිදා දින රතු පැහැයෙන් පෙන්වීම */
+.weeks li:first-child, .days li:nth-child(7n+1) {
+    color: #d9534f;
+    font-weight: bold;
+}
+/* --- HISTORY TIMELINE STYLES --- */
+.timeline-section {
+    position: relative;
+    padding-left: 30px;
+}
+.timeline-section::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #FFD700; /* Gold Line */
+}
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    top: 5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #800000; /* Maroon Dot */
+    border: 3px solid #fff;
+}
+.history-year {
+    font-weight: bold;
+    color: #800000;
+    font-size: 1.2rem;
+}
+/* --- PRINT SETTINGS (ප්‍රින්ට් කිරීම සඳහා විශේෂ සැකසුම්) --- */
+@media print {
+    /* 1. මුළු පිටුවේම ඇති සියලුම දේවල් සඟවන්න */
+    body * {
+        visibility: hidden;
+    }
+
+    /* 2. අපට අවශ්‍ය Result Card එක සහ එහි ඇති දේවල් පමණක් පෙන්වන්න */
+    #resultCard, #resultCard * {
+        visibility: visible;
+    }
+
+    /* 3. Result Card එක කඩදාසියේ ඉහළටම ගෙන එන්න */
+    #resultCard {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0 !important;
+        padding: 20px !important; /* වටේට ඉඩක් තබන්න */
+        box-shadow: none !important; /* ත්‍රිමාණ පෙනුම ඉවත් කරන්න */
+        border: 2px solid #000 !important; /* රාමුවක් එක් කරන්න */
+        background-color: white !important;
+    }
+
+    /* 4. ප්‍රින්ට් කරන බොත්තම (Print Button) සැඟවන්න */
+    .btn, button {
+        display: none !important;
+    }
+
+    /* 5. පසුබිම් වර්ණ සුදු කරන්න */
+    body {
+        background-color: white !important;
+    }
+}
+
+/* --- DHAMMA QUOTES SLIDER --- */
+.quote-section {
+    background: linear-gradient(135deg, #5c0000 0%, #800000 100%); /* Maroon Gradient */
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* පසුබිමේ ඇති ධර්ම චක්‍රය (Optional Art) */
+.quote-section::before {
+    content: '☸';
+    font-size: 15rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.05); /* ඉතා ලා පැහැයෙන් */
+    z-index: 0;
+}
+
+.quote-icon {
+    font-size: 3rem;
+    color: #FFD700; /* Gold */
+    margin-bottom: 20px;
+}
+
+.quote-text {
+    font-family: 'Noto Sans Sinhala', 'Georgia', serif; /* කැටයම් අකුරු */
+    font-size: 1.8rem;
+    font-style: italic;
+    line-height: 1.6;
+    z-index: 1;
+    position: relative;
+}
+
+.quote-author {
+    color: #FFD700;
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    z-index: 1;
+    position: relative;
+}
+
+/* --- ACHIEVEMENTS SECTION --- */
+.achievement-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    border-bottom: 5px solid #FFD700; /* Gold Line */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    height: 100%;
+}
+
+.achievement-card:hover {
+    transform: translateY(-10px); /* Mouse එක ගෙනියනකොට උඩට එසවේ */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.trophy-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    /* රන්වන් පැහැති Gradient එකක් අයිකන් එකට */
+    background: -webkit-linear-gradient(#FFD700, #DAA520);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
